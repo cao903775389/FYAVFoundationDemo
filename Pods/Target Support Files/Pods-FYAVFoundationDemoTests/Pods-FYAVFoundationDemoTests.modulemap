@@ -1,0 +1,6 @@
+framework module Pods_FYAVFoundationDemoTests {
+  umbrella header "Pods-FYAVFoundationDemoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
