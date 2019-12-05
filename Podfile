@@ -6,7 +6,9 @@ target 'FYAVFoundationDemo' do
   use_frameworks!
 
   # Pods for FYAVFoundationDemo
-
+  pod 'GPUImage', '~> 0.1.7'
+  
+  
   target 'FYAVFoundationDemoTests' do
     inherit! :search_paths
     # Pods for testing
