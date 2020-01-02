@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import <GLKit/GLKit.h>
 
 @interface ViewController ()
+
+@property (nonatomic, strong) AVCaptureSession *session;
 
 @end
 
@@ -17,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    GLKViewController *glVC = [[GLKViewController alloc] init];
 }
 
 

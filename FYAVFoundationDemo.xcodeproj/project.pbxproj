@@ -3,11 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		50FA89B1075A570A582D48B8 /* Pods_FYAVFoundationDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6100667177AD10280F48F38D /* Pods_FYAVFoundationDemoUITests.framework */; };
+		8406029C23BB201B0080503C /* FYAudioUnitDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406029A23BB201B0080503C /* FYAudioUnitDemo.m */; };
+		840602A023BB21EC0080503C /* FYConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406029F23BB21EC0080503C /* FYConstant.m */; };
+		840602A623BB557C0080503C /* FYAudioUnitPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 840602A523BB557C0080503C /* FYAudioUnitPlay.m */; };
+		840602A923BB60300080503C /* FYUnitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 840602A823BB60300080503C /* FYUnitTool.m */; };
+		8417956523ABC6CD00C3CB81 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8417956423ABC6CD00C3CB81 /* OpenGLES.framework */; };
+		8417956923ABC79000C3CB81 /* FYGLKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417956823ABC79000C3CB81 /* FYGLKViewController.m */; };
+		8421147E23BD9A9E009844F1 /* test_441_f32le_2.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 8421147D23BD9A9E009844F1 /* test_441_f32le_2.pcm */; };
+		8421148123BD9F4B009844F1 /* FYAudioSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421148023BD9F4B009844F1 /* FYAudioSession.m */; };
 		8423079822DAD7CE00385D28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8423079722DAD7CE00385D28 /* AppDelegate.m */; };
 		8423079B22DAD7CE00385D28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8423079A22DAD7CE00385D28 /* ViewController.m */; };
 		8423079E22DAD7CE00385D28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8423079C22DAD7CE00385D28 /* Main.storyboard */; };
@@ -16,6 +24,15 @@
 		842307A622DAD7D000385D28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 842307A522DAD7D000385D28 /* main.m */; };
 		842307B022DAD7D000385D28 /* FYAVFoundationDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842307AF22DAD7D000385D28 /* FYAVFoundationDemoTests.m */; };
 		842307BB22DAD7D000385D28 /* FYAVFoundationDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842307BA22DAD7D000385D28 /* FYAVFoundationDemoUITests.m */; };
+		8461B90023B0AA200087E385 /* icon_my_gift.png in Resources */ = {isa = PBXBuildFile; fileRef = 8461B8FF23B0AA1F0087E385 /* icon_my_gift.png */; };
+		8461B90423B0B1B60087E385 /* IMG_0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 8461B90323B0B1B60087E385 /* IMG_0004.png */; };
+		8461B90623B0B6240087E385 /* poster_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8461B90523B0B6240087E385 /* poster_default.png */; };
+		8461B90C23B221060087E385 /* FYGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461B90B23B221060087E385 /* FYGLView.m */; };
+		84F251F12399F4FA007A9D05 /* AVCaptureDevice+FYAVCaptureTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F251F02399F4FA007A9D05 /* AVCaptureDevice+FYAVCaptureTools.m */; };
+		84F251F8239F4400007A9D05 /* FYAVCapturePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F251F7239F4400007A9D05 /* FYAVCapturePreview.m */; };
+		84F251F9239F4676007A9D05 /* FYH264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F251F4239E6E68007A9D05 /* FYH264Encoder.m */; };
+		84FCEACB23990B8300081767 /* FYVideoRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCEACA23990B8300081767 /* FYVideoRecordViewController.m */; };
+		84FCEACD23990D8B00081767 /* ScreenRecording_06-03-2019 23.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 84FCEACC23990D8B00081767 /* ScreenRecording_06-03-2019 23.MP4 */; };
 		BC10EF267D88153FC830BBB3 /* Pods_FYAVFoundationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819F4265DAA7CB70721042D9 /* Pods_FYAVFoundationDemo.framework */; };
 		BE97AFDFC05606126553E69C /* Pods_FYAVFoundationDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D6EC7273B4520FDE159328 /* Pods_FYAVFoundationDemoTests.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +60,21 @@
 		31CEE73CBB8A29DE3118FD15 /* Pods-FYAVFoundationDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYAVFoundationDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-FYAVFoundationDemoUITests/Pods-FYAVFoundationDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6100667177AD10280F48F38D /* Pods_FYAVFoundationDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYAVFoundationDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		819F4265DAA7CB70721042D9 /* Pods_FYAVFoundationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYAVFoundationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8406029923BB201B0080503C /* FYAudioUnitDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAudioUnitDemo.h; sourceTree = "<group>"; };
+		8406029A23BB201B0080503C /* FYAudioUnitDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAudioUnitDemo.m; sourceTree = "<group>"; };
+		8406029E23BB21EC0080503C /* FYConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYConstant.h; sourceTree = "<group>"; };
+		8406029F23BB21EC0080503C /* FYConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYConstant.m; sourceTree = "<group>"; };
+		840602A423BB557C0080503C /* FYAudioUnitPlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAudioUnitPlay.h; sourceTree = "<group>"; };
+		840602A523BB557C0080503C /* FYAudioUnitPlay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAudioUnitPlay.m; sourceTree = "<group>"; };
+		840602A723BB60300080503C /* FYUnitTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYUnitTool.h; sourceTree = "<group>"; };
+		840602A823BB60300080503C /* FYUnitTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYUnitTool.m; sourceTree = "<group>"; };
+		8417956423ABC6CD00C3CB81 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		8417956623ABC71800C3CB81 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		8417956723ABC79000C3CB81 /* FYGLKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYGLKViewController.h; sourceTree = "<group>"; };
+		8417956823ABC79000C3CB81 /* FYGLKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYGLKViewController.m; sourceTree = "<group>"; };
+		8421147D23BD9A9E009844F1 /* test_441_f32le_2.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = test_441_f32le_2.pcm; sourceTree = "<group>"; };
+		8421147F23BD9F4B009844F1 /* FYAudioSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAudioSession.h; sourceTree = "<group>"; };
+		8421148023BD9F4B009844F1 /* FYAudioSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAudioSession.m; sourceTree = "<group>"; };
 		8423079322DAD7CE00385D28 /* FYAVFoundationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYAVFoundationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8423079622DAD7CE00385D28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8423079722DAD7CE00385D28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,6 +91,20 @@
 		842307B622DAD7D000385D28 /* FYAVFoundationDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FYAVFoundationDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		842307BA22DAD7D000385D28 /* FYAVFoundationDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAVFoundationDemoUITests.m; sourceTree = "<group>"; };
 		842307BC22DAD7D000385D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8461B8FF23B0AA1F0087E385 /* icon_my_gift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_my_gift.png; sourceTree = "<group>"; };
+		8461B90323B0B1B60087E385 /* IMG_0004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0004.png; sourceTree = "<group>"; };
+		8461B90523B0B6240087E385 /* poster_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poster_default.png; sourceTree = "<group>"; };
+		8461B90A23B221060087E385 /* FYGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYGLView.h; sourceTree = "<group>"; };
+		8461B90B23B221060087E385 /* FYGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYGLView.m; sourceTree = "<group>"; };
+		84F251EF2399F4FA007A9D05 /* AVCaptureDevice+FYAVCaptureTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVCaptureDevice+FYAVCaptureTools.h"; sourceTree = "<group>"; };
+		84F251F02399F4FA007A9D05 /* AVCaptureDevice+FYAVCaptureTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVCaptureDevice+FYAVCaptureTools.m"; sourceTree = "<group>"; };
+		84F251F3239E6E68007A9D05 /* FYH264Encoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYH264Encoder.h; sourceTree = "<group>"; };
+		84F251F4239E6E68007A9D05 /* FYH264Encoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYH264Encoder.m; sourceTree = "<group>"; };
+		84F251F6239F4400007A9D05 /* FYAVCapturePreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAVCapturePreview.h; sourceTree = "<group>"; };
+		84F251F7239F4400007A9D05 /* FYAVCapturePreview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAVCapturePreview.m; sourceTree = "<group>"; };
+		84FCEAC923990B8300081767 /* FYVideoRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYVideoRecordViewController.h; sourceTree = "<group>"; };
+		84FCEACA23990B8300081767 /* FYVideoRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYVideoRecordViewController.m; sourceTree = "<group>"; };
+		84FCEACC23990D8B00081767 /* ScreenRecording_06-03-2019 23.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ScreenRecording_06-03-2019 23.MP4"; sourceTree = "<group>"; };
 		969C762A6727085BFFA0B793 /* Pods-FYAVFoundationDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYAVFoundationDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-FYAVFoundationDemoUITests/Pods-FYAVFoundationDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B1D6EC7273B4520FDE159328 /* Pods_FYAVFoundationDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYAVFoundationDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13736262853093A89877CAB /* Pods-FYAVFoundationDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYAVFoundationDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-FYAVFoundationDemoTests/Pods-FYAVFoundationDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8417956523ABC6CD00C3CB81 /* OpenGLES.framework in Frameworks */,
 				BC10EF267D88153FC830BBB3 /* Pods_FYAVFoundationDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,11 +143,31 @@
 		4D996E69BCD7E83B5E0CC02B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8417956623ABC71800C3CB81 /* GLKit.framework */,
+				8417956423ABC6CD00C3CB81 /* OpenGLES.framework */,
 				819F4265DAA7CB70721042D9 /* Pods_FYAVFoundationDemo.framework */,
 				B1D6EC7273B4520FDE159328 /* Pods_FYAVFoundationDemoTests.framework */,
 				6100667177AD10280F48F38D /* Pods_FYAVFoundationDemoUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		840602A323BB554A0080503C /* AudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				840602A423BB557C0080503C /* FYAudioUnitPlay.h */,
+				840602A523BB557C0080503C /* FYAudioUnitPlay.m */,
+			);
+			path = AudioPlayer;
+			sourceTree = "<group>";
+		};
+		8417956323ABC68300C3CB81 /* OpenGLES */ = {
+			isa = PBXGroup;
+			children = (
+				8417956723ABC79000C3CB81 /* FYGLKViewController.h */,
+				8417956823ABC79000C3CB81 /* FYGLKViewController.m */,
+			);
+			path = OpenGLES;
 			sourceTree = "<group>";
 		};
 		8423078A22DAD7CE00385D28 = {
@@ -132,6 +199,12 @@
 				8423079722DAD7CE00385D28 /* AppDelegate.m */,
 				8423079922DAD7CE00385D28 /* ViewController.h */,
 				8423079A22DAD7CE00385D28 /* ViewController.m */,
+				8461B90323B0B1B60087E385 /* IMG_0004.png */,
+				8461B90523B0B6240087E385 /* poster_default.png */,
+				84FCEACC23990D8B00081767 /* ScreenRecording_06-03-2019 23.MP4 */,
+				8461B8FF23B0AA1F0087E385 /* icon_my_gift.png */,
+				8421147D23BD9A9E009844F1 /* test_441_f32le_2.pcm */,
+				84FCEAC723990A3700081767 /* Demo */,
 				8423079C22DAD7CE00385D28 /* Main.storyboard */,
 				8423079F22DAD7D000385D28 /* Assets.xcassets */,
 				842307A122DAD7D000385D28 /* LaunchScreen.storyboard */,
@@ -159,6 +232,57 @@
 			path = FYAVFoundationDemoUITests;
 			sourceTree = "<group>";
 		};
+		8461B90923B2162A0087E385 /* GPUImageView */ = {
+			isa = PBXGroup;
+			children = (
+				8461B90A23B221060087E385 /* FYGLView.h */,
+				8461B90B23B221060087E385 /* FYGLView.m */,
+			);
+			path = GPUImageView;
+			sourceTree = "<group>";
+		};
+		84F251EE2399F4B3007A9D05 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				84F251EF2399F4FA007A9D05 /* AVCaptureDevice+FYAVCaptureTools.h */,
+				84F251F02399F4FA007A9D05 /* AVCaptureDevice+FYAVCaptureTools.m */,
+				84F251F3239E6E68007A9D05 /* FYH264Encoder.h */,
+				84F251F4239E6E68007A9D05 /* FYH264Encoder.m */,
+				84F251F6239F4400007A9D05 /* FYAVCapturePreview.h */,
+				84F251F7239F4400007A9D05 /* FYAVCapturePreview.m */,
+				8406029E23BB21EC0080503C /* FYConstant.h */,
+				8406029F23BB21EC0080503C /* FYConstant.m */,
+				840602A723BB60300080503C /* FYUnitTool.h */,
+				840602A823BB60300080503C /* FYUnitTool.m */,
+				8421147F23BD9F4B009844F1 /* FYAudioSession.h */,
+				8421148023BD9F4B009844F1 /* FYAudioSession.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		84FCEAC723990A3700081767 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				840602A323BB554A0080503C /* AudioPlayer */,
+				8461B90923B2162A0087E385 /* GPUImageView */,
+				8417956323ABC68300C3CB81 /* OpenGLES */,
+				84F251EE2399F4B3007A9D05 /* Tools */,
+				84FCEAC823990A4100081767 /* 视频录制 */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		84FCEAC823990A4100081767 /* 视频录制 */ = {
+			isa = PBXGroup;
+			children = (
+				84FCEAC923990B8300081767 /* FYVideoRecordViewController.h */,
+				84FCEACA23990B8300081767 /* FYVideoRecordViewController.m */,
+				8406029923BB201B0080503C /* FYAudioUnitDemo.h */,
+				8406029A23BB201B0080503C /* FYAudioUnitDemo.m */,
+			);
+			path = "视频录制";
+			sourceTree = "<group>";
+		};
 		F4752E6604344C99C32EBFFE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +293,6 @@
 				31CEE73CBB8A29DE3118FD15 /* Pods-FYAVFoundationDemoUITests.debug.xcconfig */,
 				969C762A6727085BFFA0B793 /* Pods-FYAVFoundationDemoUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -280,8 +403,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8461B90623B0B6240087E385 /* poster_default.png in Resources */,
+				84FCEACD23990D8B00081767 /* ScreenRecording_06-03-2019 23.MP4 in Resources */,
+				8461B90423B0B1B60087E385 /* IMG_0004.png in Resources */,
+				8461B90023B0AA200087E385 /* icon_my_gift.png in Resources */,
 				842307A322DAD7D000385D28 /* LaunchScreen.storyboard in Resources */,
 				842307A022DAD7D000385D28 /* Assets.xcassets in Resources */,
+				8421147E23BD9A9E009844F1 /* test_441_f32le_2.pcm in Resources */,
 				8423079E22DAD7CE00385D28 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,8 +521,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8421148123BD9F4B009844F1 /* FYAudioSession.m in Sources */,
+				84F251F8239F4400007A9D05 /* FYAVCapturePreview.m in Sources */,
+				840602A023BB21EC0080503C /* FYConstant.m in Sources */,
+				84F251F9239F4676007A9D05 /* FYH264Encoder.m in Sources */,
+				840602A623BB557C0080503C /* FYAudioUnitPlay.m in Sources */,
+				84FCEACB23990B8300081767 /* FYVideoRecordViewController.m in Sources */,
+				840602A923BB60300080503C /* FYUnitTool.m in Sources */,
 				8423079B22DAD7CE00385D28 /* ViewController.m in Sources */,
+				8406029C23BB201B0080503C /* FYAudioUnitDemo.m in Sources */,
+				8461B90C23B221060087E385 /* FYGLView.m in Sources */,
+				8417956923ABC79000C3CB81 /* FYGLKViewController.m in Sources */,
 				842307A622DAD7D000385D28 /* main.m in Sources */,
+				84F251F12399F4FA007A9D05 /* AVCaptureDevice+FYAVCaptureTools.m in Sources */,
 				8423079822DAD7CE00385D28 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -554,7 +693,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -567,14 +706,16 @@
 			baseConfigurationReference = EAEAC58457C3FD78AE2FE1BB /* Pods-FYAVFoundationDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = HKHF23MEHS;
 				INFOPLIST_FILE = FYAVFoundationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mrc.FYAVFoundationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.wmlive.hhvideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.wmlive.hhvideo";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -584,14 +725,16 @@
 			baseConfigurationReference = 14EC8B697111013B436F55B7 /* Pods-FYAVFoundationDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = HKHF23MEHS;
 				INFOPLIST_FILE = FYAVFoundationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mrc.FYAVFoundationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.wmlive.hhvideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.wmlive.hhvideo";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
