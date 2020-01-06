@@ -140,7 +140,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="t6L-b1-Grw" kind="show" id="2aG-1T-ryS"/>
+                                            <segue destination="Lbd-EY-ig3" kind="show" id="hQM-Lz-J9n"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="7sB-eb-xAB" style="IBUITableViewCellStyleDefault" id="PGd-AH-Xaz">
@@ -175,7 +175,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfD-ug-LrV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="-60"/>
+            <point key="canvasLocation" x="451" y="-203"/>
         </scene>
         <!--视频录制-->
         <scene sceneID="K2J-Pa-0wu">
@@ -273,6 +273,71 @@
             <point key="canvasLocation" x="1988" y="-1364"/>
         </scene>
         <!--AudioUnit-->
+        <scene sceneID="oGK-DR-yFN">
+            <objects>
+                <tableViewController id="Lbd-EY-ig3" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r1E-kK-B5J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="NHE-gc-GfL">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="QNn-XU-SDY" style="IBUITableViewCellStyleDefault" id="lr1-aH-N18">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lr1-aH-N18" id="UF6-UD-x4a">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="播放PCM文件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QNn-XU-SDY">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="t6L-b1-Grw" kind="show" id="fnq-rs-riK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Y0G-uK-bXz" style="IBUITableViewCellStyleDefault" id="1Bp-x9-AyG">
+                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Bp-x9-AyG" id="T91-LL-aRo">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="耳返录制并保存本地" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y0G-uK-bXz">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Kui-BN-ORD" kind="show" id="Usx-Px-feb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Lbd-EY-ig3" id="Vnt-0O-7lx"/>
+                            <outlet property="delegate" destination="Lbd-EY-ig3" id="35q-RQ-YbS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="AudioUnit" id="K9q-JP-TDC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCg-9R-9Hk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2006" y="-524"/>
+        </scene>
+        <!--Audio Unit Demo-->
         <scene sceneID="j9C-sI-g0j">
             <objects>
                 <viewController id="t6L-b1-Grw" customClass="FYAudioUnitDemo" sceneMemberID="viewController">
@@ -280,14 +345,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l0q-Mp-FdP">
-                                <rect key="frame" x="160" y="433" width="94" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l0q-Mp-FdP">
+                                <rect key="frame" x="191.5" y="413" width="31" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJX-8t-EC1">
-                                        <rect key="frame" x="0.0" y="0.0" width="94" height="30"/>
-                                        <state key="normal" title="播放PCM文件"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
+                                        <state key="normal" title="播放"/>
                                         <connections>
                                             <action selector="playePcmFile:" destination="t6L-b1-Grw" eventType="touchUpInside" id="tVd-qO-kDz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGC-kH-7ni">
+                                        <rect key="frame" x="0.0" y="40" width="31" height="30"/>
+                                        <state key="normal" title="停止"/>
+                                        <connections>
+                                            <action selector="pausButtonClick:" destination="t6L-b1-Grw" eventType="touchUpInside" id="eOh-jN-ZZ5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -300,11 +372,54 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5li-8v-kfd"/>
                     </view>
-                    <navigationItem key="navigationItem" title="AudioUnit" id="7Bx-mI-zlb"/>
+                    <navigationItem key="navigationItem" id="7Bx-mI-zlb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VU1-XG-0G0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="-170"/>
+            <point key="canvasLocation" x="3309" y="-1177"/>
+        </scene>
+        <!--AudioUnit 录制并播放-->
+        <scene sceneID="d3u-es-G4n">
+            <objects>
+                <viewController id="Kui-BN-ORD" customClass="FYAudioUnitRecordDemo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZKm-or-WvO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vMr-F0-IFH">
+                                <rect key="frame" x="176" y="413" width="62" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMD-l5-RF5">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
+                                        <state key="normal" title="开始录制"/>
+                                        <connections>
+                                            <action selector="playePcmFile:" destination="t6L-b1-Grw" eventType="touchUpInside" id="nts-kF-fZh"/>
+                                            <action selector="startRecord:" destination="Kui-BN-ORD" eventType="touchUpInside" id="Im4-QS-6cx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SG-r5-nK1">
+                                        <rect key="frame" x="0.0" y="40" width="62" height="30"/>
+                                        <state key="normal" title="停止录制"/>
+                                        <connections>
+                                            <action selector="pausButtonClick:" destination="t6L-b1-Grw" eventType="touchUpInside" id="lIU-HM-5F9"/>
+                                            <action selector="stopRecord:" destination="Kui-BN-ORD" eventType="touchUpInside" id="e7t-ks-edK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vMr-F0-IFH" firstAttribute="centerX" secondItem="ZKm-or-WvO" secondAttribute="centerX" id="rBh-zp-iRT"/>
+                            <constraint firstItem="vMr-F0-IFH" firstAttribute="centerY" secondItem="ZKm-or-WvO" secondAttribute="centerY" id="xZc-29-IWp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kga-wU-2n7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="AudioUnit 录制并播放" id="Xgy-t9-xH4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qVm-Wk-9JU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3309" y="-320"/>
         </scene>
         <!--OpenGL-->
         <scene sceneID="ttc-3L-jRf">

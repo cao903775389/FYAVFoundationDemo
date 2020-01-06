@@ -41,14 +41,14 @@ typedef NS_ENUM(NSInteger, FYAudioFileType) {
 *  AudioSaveTypePacket:
 *  对应kAudioFormatFlagIsPacked，每个声道数据交叉存储在AudioBufferList的mBuffers
 *  [0]中,如：左声道右声道左声道右声道....
-*  AudioSaveTypePlanner:
+*  FYAudioDataTypeNonInterleaved:
 *  对应kAudioFormatFlagIsNonInterleaved，表示每个声道数据分开存储在mBuffers[i]中如：
 *  mBuffers[0],左声道左声道左声道左声道
 *  mBuffers[1],右声道右声道右声道右声道
 */
 typedef NS_ENUM(NSInteger, FYAudioDataType) {
     FYAudioDataTypePacket,
-    FYAudioDataTypePlanner
+    FYAudioDataTypeNonInterleaved
 };
 
 /** 音频采样数据的采样格式
@@ -71,6 +71,18 @@ typedef NS_ENUM(NSInteger, FYAudioFormatType) {
 typedef NS_ENUM(NSInteger, FYAudioChannel) {
     FYAudioChannelSingle = 1,
     FYAudioChannelDouble = 2,
+};
+
+/// 音频采样率 (默认44.1KHz)
+typedef NS_ENUM (NSUInteger, FYAudioSampleRate){
+    /// 16KHz 采样率
+    FYAudioSampleRate_16000Hz = 16000,
+    /// 44.1KHz 采样率
+    FYAudioSampleRate_44100Hz = 44100,
+    /// 48KHz 采样率
+    FYAudioSampleRate_48000Hz = 48000,
+    /// 默认音频采样率，默认为 44.1KHz
+    FYAudioSampleRate_Default = FYAudioSampleRate_44100Hz
 };
 
 // 三种不同音频播放延迟

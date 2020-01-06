@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		50FA89B1075A570A582D48B8 /* Pods_FYAVFoundationDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6100667177AD10280F48F38D /* Pods_FYAVFoundationDemoUITests.framework */; };
+		84022D0C23C213810058CC4A /* FYAudioUnitRecordDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84022D0A23C213810058CC4A /* FYAudioUnitRecordDemo.m */; };
+		84022D1023C21A8F0058CC4A /* FYAudioUnitRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84022D0F23C21A8F0058CC4A /* FYAudioUnitRecorder.m */; };
+		84022D1423C21CDD0058CC4A /* FYAudioConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 84022D1323C21CDD0058CC4A /* FYAudioConfiguration.m */; };
 		8406029C23BB201B0080503C /* FYAudioUnitDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406029A23BB201B0080503C /* FYAudioUnitDemo.m */; };
 		840602A023BB21EC0080503C /* FYConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406029F23BB21EC0080503C /* FYConstant.m */; };
 		840602A623BB557C0080503C /* FYAudioUnitPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 840602A523BB557C0080503C /* FYAudioUnitPlay.m */; };
@@ -60,6 +63,12 @@
 		31CEE73CBB8A29DE3118FD15 /* Pods-FYAVFoundationDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYAVFoundationDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-FYAVFoundationDemoUITests/Pods-FYAVFoundationDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6100667177AD10280F48F38D /* Pods_FYAVFoundationDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYAVFoundationDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		819F4265DAA7CB70721042D9 /* Pods_FYAVFoundationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYAVFoundationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84022D0923C213810058CC4A /* FYAudioUnitRecordDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAudioUnitRecordDemo.h; sourceTree = "<group>"; };
+		84022D0A23C213810058CC4A /* FYAudioUnitRecordDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAudioUnitRecordDemo.m; sourceTree = "<group>"; };
+		84022D0E23C21A8F0058CC4A /* FYAudioUnitRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAudioUnitRecorder.h; sourceTree = "<group>"; };
+		84022D0F23C21A8F0058CC4A /* FYAudioUnitRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAudioUnitRecorder.m; sourceTree = "<group>"; };
+		84022D1223C21CDD0058CC4A /* FYAudioConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAudioConfiguration.h; sourceTree = "<group>"; };
+		84022D1323C21CDD0058CC4A /* FYAudioConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAudioConfiguration.m; sourceTree = "<group>"; };
 		8406029923BB201B0080503C /* FYAudioUnitDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAudioUnitDemo.h; sourceTree = "<group>"; };
 		8406029A23BB201B0080503C /* FYAudioUnitDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAudioUnitDemo.m; sourceTree = "<group>"; };
 		8406029E23BB21EC0080503C /* FYConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYConstant.h; sourceTree = "<group>"; };
@@ -157,6 +166,10 @@
 			children = (
 				840602A423BB557C0080503C /* FYAudioUnitPlay.h */,
 				840602A523BB557C0080503C /* FYAudioUnitPlay.m */,
+				84022D0E23C21A8F0058CC4A /* FYAudioUnitRecorder.h */,
+				84022D0F23C21A8F0058CC4A /* FYAudioUnitRecorder.m */,
+				84022D1223C21CDD0058CC4A /* FYAudioConfiguration.h */,
+				84022D1323C21CDD0058CC4A /* FYAudioConfiguration.m */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -168,6 +181,17 @@
 				8417956823ABC79000C3CB81 /* FYGLKViewController.m */,
 			);
 			path = OpenGLES;
+			sourceTree = "<group>";
+		};
+		842114AF23C21193009844F1 /* AudioUnit */ = {
+			isa = PBXGroup;
+			children = (
+				8406029923BB201B0080503C /* FYAudioUnitDemo.h */,
+				8406029A23BB201B0080503C /* FYAudioUnitDemo.m */,
+				84022D0923C213810058CC4A /* FYAudioUnitRecordDemo.h */,
+				84022D0A23C213810058CC4A /* FYAudioUnitRecordDemo.m */,
+			);
+			path = AudioUnit;
 			sourceTree = "<group>";
 		};
 		8423078A22DAD7CE00385D28 = {
@@ -263,6 +287,7 @@
 		84FCEAC723990A3700081767 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				842114AF23C21193009844F1 /* AudioUnit */,
 				840602A323BB554A0080503C /* AudioPlayer */,
 				8461B90923B2162A0087E385 /* GPUImageView */,
 				8417956323ABC68300C3CB81 /* OpenGLES */,
@@ -277,8 +302,6 @@
 			children = (
 				84FCEAC923990B8300081767 /* FYVideoRecordViewController.h */,
 				84FCEACA23990B8300081767 /* FYVideoRecordViewController.m */,
-				8406029923BB201B0080503C /* FYAudioUnitDemo.h */,
-				8406029A23BB201B0080503C /* FYAudioUnitDemo.m */,
 			);
 			path = "视频录制";
 			sourceTree = "<group>";
@@ -524,10 +547,13 @@
 				8421148123BD9F4B009844F1 /* FYAudioSession.m in Sources */,
 				84F251F8239F4400007A9D05 /* FYAVCapturePreview.m in Sources */,
 				840602A023BB21EC0080503C /* FYConstant.m in Sources */,
+				84022D0C23C213810058CC4A /* FYAudioUnitRecordDemo.m in Sources */,
 				84F251F9239F4676007A9D05 /* FYH264Encoder.m in Sources */,
 				840602A623BB557C0080503C /* FYAudioUnitPlay.m in Sources */,
 				84FCEACB23990B8300081767 /* FYVideoRecordViewController.m in Sources */,
+				84022D1023C21A8F0058CC4A /* FYAudioUnitRecorder.m in Sources */,
 				840602A923BB60300080503C /* FYUnitTool.m in Sources */,
+				84022D1423C21CDD0058CC4A /* FYAudioConfiguration.m in Sources */,
 				8423079B22DAD7CE00385D28 /* ViewController.m in Sources */,
 				8406029C23BB201B0080503C /* FYAudioUnitDemo.m in Sources */,
 				8461B90C23B221060087E385 /* FYGLView.m in Sources */,

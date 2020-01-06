@@ -15,14 +15,12 @@
     
     //播放
     AudioUnit _ioUnit;
-    AudioComponentDescription _ioDes;
-    AudioStreamBasicDescription _ioStreamDes; //扬声器播放的流格式
     AUNode _ioNode;
     
     //格式转换
     AudioUnit _convertUnit;
-    AudioComponentDescription _convertDes;
-    AudioStreamBasicDescription _convertInputStreamDes; //需要转换的文件流格式
+//    AudioComponentDescription _convertDes;
+//    AudioStreamBasicDescription _convertInputStreamDes; //需要转换的文件流格式
     AUNode _convertNode;
 }
 
@@ -74,29 +72,29 @@
         return;
     }
     OSStatus status;
-    CAShow(_processingGraph);
-    status = AUGraphInitialize(_processingGraph);
+    CAShow(self->_processingGraph);
+    status = AUGraphInitialize(self->_processingGraph);
     if (status != noErr) {
         NSLog(@"AUGraphInitialize fail %d",status);
     }
-    status = AUGraphStart(_processingGraph);
+    status = AUGraphStart(self->_processingGraph);
     if (status != noErr) {
         NSLog(@"AUGraphStart fail %d",status);
     }
     
-    if (_inputStream == nil) {
-        [self initInputStream:_fileURL];
+    if (self.inputStream == nil) {
+        [self initInputStream:self.fileURL];
     }
 }
 
 - (void)stop {
     OSStatus status;
-    status = AUGraphStop(_processingGraph);
+    status = AUGraphStop(self->_processingGraph);
     if (status != noErr) {
         NSLog(@"AUGraphStop fail %d",status);
     }
-    [_inputStream close];
-    _inputStream = nil;
+    [self->_inputStream close];
+    self->_inputStream = nil;
     NSLog(@"AUGraphStop status %d",status);
 }
 
@@ -108,7 +106,9 @@
         AUGraphRemoveNode(_processingGraph, _ioNode);
         AUGraphRemoveNode(_processingGraph, _convertNode);
         _ioUnit = NULL;
+        _convertUnit = NULL;
         _ioNode = 0;
+        _convertNode = 0;
         _processingGraph = NULL;
     }else {
         AudioOutputUnitStop(_ioUnit);
@@ -139,12 +139,7 @@
 
 - (void)setupAudioSession {
     dispatch_async(_sessionQueue, ^{
-        self.audioSession = [[FYAudioSession alloc] initWithSampleRate:44100
-                                              category:AVAudioSessionCategoryPlayback
-                                              channels:FYAudioChannelDouble
-                                        bufferDuration:FYSAudioSessionDelay_Default
-                                            formatType:FYAudioFormatType32Float
-                                              dataType:FYAudioDataTypePacket];
+        self.audioSession = [FYAudioSession defaultAudioSession];
     });
 }
 
@@ -184,16 +179,16 @@
     }
 
     //创建IOUnit
-    _ioDes = [FYUnitTool componentDesWithType:kAudioUnitType_Output subType:kAudioUnitSubType_RemoteIO];
-    status = AUGraphAddNode(_processingGraph, &_ioDes, &_ioNode);
+    AudioComponentDescription ioDes = [FYUnitTool componentDesWithType:kAudioUnitType_Output subType:kAudioUnitSubType_RemoteIO];
+    status = AUGraphAddNode(_processingGraph, &ioDes, &_ioNode);
     if (status != noErr) {
         NSLog(@"AUGraphAddNode failed %d", status);
         self.setupResult = FYAudioSetupResultFailed;
     }
     
     //创建ConvertUnit
-    _convertDes = [FYUnitTool componentDesWithType:kAudioUnitType_FormatConverter subType:kAudioUnitSubType_AUConverter];
-    AUGraphAddNode(_processingGraph, &_convertDes, &_convertNode);
+    AudioComponentDescription convertDes = [FYUnitTool componentDesWithType:kAudioUnitType_FormatConverter subType:kAudioUnitSubType_AUConverter];
+    AUGraphAddNode(_processingGraph, &convertDes, &_convertNode);
     
     status = AUGraphOpen(_processingGraph);
     if (status != noErr) {
@@ -240,11 +235,11 @@
         NSLog(@"AudioUnitSetProperty io fail %d",status);
     }
     
-    NSInteger sampleRate = self.audioSession.sampleRate;
-    NSInteger channels = self.audioSession.channels;
+    NSInteger sampleRate = self.audioSession.configuration.audioSampleRate;
+    NSInteger channels = self.audioSession.configuration.channels;
     
     //设置AudioUnit 数据格式
-    _ioStreamDes = [FYUnitTool streamDesWithLinearPCMformat:kAudioFormatFlagIsFloat|kAudioFormatFlagIsNonInterleaved
+    AudioStreamBasicDescription ioStreamDes = [FYUnitTool streamDesWithLinearPCMformat:kAudioFormatFlagIsFloat|kAudioFormatFlagIsNonInterleaved
                      sampleRate:sampleRate
                        channels:channels
                 bytesPerChannel:4];
@@ -253,7 +248,7 @@
     AudioFormatFlags flags = self.audioSession.formatFlags;
     NSInteger bytesPerChannel = self.audioSession.bytesPerChannel;
     
-    _convertInputStreamDes = [FYUnitTool streamDesWithLinearPCMformat:flags
+    AudioStreamBasicDescription convertInputStreamDes = [FYUnitTool streamDesWithLinearPCMformat:flags
                     sampleRate:sampleRate
                       channels:channels
                bytesPerChannel:bytesPerChannel];
@@ -264,8 +259,8 @@
          kAudioUnitProperty_StreamFormat,
          kAudioUnitScope_Input,
          outputBus,
-         &_ioStreamDes,
-         sizeof(_ioStreamDes)
+         &ioStreamDes,
+         sizeof(ioStreamDes)
     );
     if (status != noErr) {
         self.setupResult = FYAudioSetupResultFailed;
@@ -278,8 +273,8 @@
           kAudioUnitProperty_StreamFormat,
           kAudioUnitScope_Input,
           outputBus,
-          &_convertInputStreamDes,
-          sizeof(_convertInputStreamDes)
+          &convertInputStreamDes,
+          sizeof(convertInputStreamDes)
     );
     if (status != noErr) {
         self.setupResult = FYAudioSetupResultFailed;
@@ -291,8 +286,8 @@
           kAudioUnitProperty_StreamFormat,
           kAudioUnitScope_Output,
           outputBus,
-          &_ioStreamDes,
-          sizeof(_ioStreamDes)
+          &ioStreamDes,
+          sizeof(ioStreamDes)
     );
     if (status != noErr) {
         self.setupResult = FYAudioSetupResultFailed;
@@ -358,7 +353,7 @@ static OSStatus handleInputBuffer(void *inRefCon,
         FYAudioUnitPlay *player = (__bridge FYAudioUnitPlay*)inRefCon;
         if (player.inputStream != nil && player.fileType == FYAudioFileTypeLPCM) {
             //判断PCM数据格式
-            if (player->_ioStreamDes.mFormatFlags & kAudioFormatFlagIsNonInterleaved) {
+            if (player.audioSession.configuration.audioDataType == FYAudioDataTypeNonInterleaved) {
                 //kAudioFormatFlagIsNonInterleaved
                 NSInteger byteSize = (OSStatus)[player.inputStream read:ioData->mBuffers[0].mData maxLength:ioData->mBuffers[0].mDataByteSize];
                 if (byteSize < 0) {
@@ -368,7 +363,7 @@ static OSStatus handleInputBuffer(void *inRefCon,
                 [player debugPrint:ioData readByte:byteSize];
                 ioData->mBuffers[0].mDataByteSize = (UInt32)byteSize;
 
-            }else if (player->_ioStreamDes.mFormatFlags & kAudioFormatFlagIsPacked) {
+            }else if (player.audioSession.configuration.audioDataType == FYAudioDataTypePacket) {
                 //kAudioFormatFlagIsPacked
                 for (int iBuffer=0; iBuffer < ioData->mNumberBuffers; iBuffer++) {
                     NSInteger byteSize = (UInt32)[player.inputStream read:ioData->mBuffers[iBuffer].mData maxLength:(NSInteger)ioData->mBuffers[iBuffer].mDataByteSize];

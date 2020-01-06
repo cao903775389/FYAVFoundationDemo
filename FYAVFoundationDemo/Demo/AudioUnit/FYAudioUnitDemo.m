@@ -27,5 +27,8 @@
 - (IBAction)playePcmFile:(id)sender {
     [self.player play];
 }
+- (IBAction)pausButtonClick:(UIButton *)sender {
+    [self.player stop];
+}
 
 @end

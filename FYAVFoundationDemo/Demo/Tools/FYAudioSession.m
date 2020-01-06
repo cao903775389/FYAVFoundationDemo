@@ -7,56 +7,45 @@
 //
 
 #import "FYAudioSession.h"
-#import "FYConstant.h"
 
 @interface FYAudioSession ()
 
-@property (nonatomic, assign) NSInteger sampleRate;
-@property (nonatomic, assign) NSInteger channels;
-@property (nonatomic, assign) FYAudioFormatType formatType;
-@property (nonatomic, assign) FYAudioDataType dataType;
 @property (nonatomic, strong) AVAudioSession *audioSession;
+@property (nonatomic, strong) FYAudioConfiguration *configuration;
 
 @end
 
 @implementation FYAudioSession
 
 + (FYAudioSession *)defaultAudioSession {
-    return [[FYAudioSession alloc] initWithSampleRate:44100
-                                 category:AVAudioSessionCategoryPlayback
-                                 channels:FYAudioChannelDouble
-                           bufferDuration:FYSAudioSessionDelay_Default
-                               formatType:FYAudioFormatType32Float
-                                 dataType:FYAudioDataTypePacket];
+    FYAudioConfiguration *config = [FYAudioConfiguration defaultConfiguration];
+    return [[self alloc] initWithConfiguration:config category:AVAudioSessionCategoryPlayback options:AVAudioSessionCategoryOptionAllowBluetooth|AVAudioSessionCategoryOptionDefaultToSpeaker];
 }
 
-- (instancetype)initWithSampleRate:(NSInteger)sampleRate
-                          category:(AVAudioSessionCategory)category
-                          channels:(NSInteger)channels
-                    bufferDuration:(NSTimeInterval)duration
-                        formatType:(FYAudioFormatType)formatType
-                          dataType:(FYAudioDataType)dataType {
+- (instancetype)initWithConfiguration:(FYAudioConfiguration *)configuration
+                             category:(nonnull AVAudioSessionCategory)category
+                              options:(AVAudioSessionCategoryOptions)options {
     if (self = [super init]) {
-        _sampleRate = sampleRate;
-        _channels = channels;
-        _formatType = formatType;
-        _dataType = dataType;
+        _configuration = configuration;
         _audioSession = [AVAudioSession sharedInstance];
-        [_audioSession setCategory:category error:nil];
-        [_audioSession setPreferredSampleRate:sampleRate error:nil];
+
+        _audioSession = [AVAudioSession sharedInstance];
+        [_audioSession setCategory:category withOptions:options error:nil];
+        [_audioSession setPreferredSampleRate:_configuration.audioSampleRate error:nil];
         // 设置I/O的Buffer，数值越小说明缓存的数据越小，延迟也就越低；
-        [_audioSession setPreferredIOBufferDuration:duration error:nil];
+        [_audioSession setPreferredIOBufferDuration:_configuration.bufferLength error:nil];
         [_audioSession setActive:YES error:nil];
     }
+    
     return self;
 }
 
 - (AudioFormatFlags)formatFlags {
     AudioFormatFlags flags = kAudioFormatFlagIsSignedInteger;
-    if (self.formatType == FYAudioFormatType32Float) {
+    if (self.configuration.audioFormatType == FYAudioFormatType32Float) {
         flags = kAudioFormatFlagIsFloat;
     }
-    if (self.dataType == FYAudioDataTypePlanner) {
+    if (self.configuration.audioDataType == FYAudioDataTypeNonInterleaved) {
         flags |= kAudioFormatFlagIsNonInterleaved;
     }else{
         flags |= kAudioFormatFlagIsPacked;
@@ -65,7 +54,7 @@
 }
 
 - (NSInteger)bytesPerChannel {
-    if (self.formatType == FYAudioFormatType16Int) {
+    if (self.configuration.audioFormatType == FYAudioFormatType16Int) {
         return 2;
     }
     return 4;
