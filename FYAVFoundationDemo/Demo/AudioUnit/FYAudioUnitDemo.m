@@ -20,8 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"test_441_f32le_2" ofType:@"pcm"];
-    self.player = [[FYAudioUnitPlay alloc] initWithFileURL:[NSURL fileURLWithPath:filePath] fileType:FYAudioFileTypeLPCM];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"test_441_f32le_2" ofType:@"pcm"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"audiounit_record" ofType:@"pcm"];
+
+    FYAudioConfiguration *configuration = [FYAudioConfiguration defaultConfiguration];
+
+    
+    self.player = [[FYAudioUnitPlay alloc] initWithFileURL:[NSURL fileURLWithPath:filePath] configure:configuration];
 }
 
 - (IBAction)playePcmFile:(id)sender {

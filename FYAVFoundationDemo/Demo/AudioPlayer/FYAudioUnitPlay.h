@@ -14,7 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FYAudioUnitPlay : NSObject
 
-- (instancetype)initWithFileURL:(NSURL *)fileURL fileType:(FYAudioFileType)fileType;
+@property (nonatomic, assign, readonly) BOOL isPlaying;
+
+- (instancetype)initWithFileURL:(NSURL *)fileURL
+                      configure:(FYAudioConfiguration *)configuration;
 
 - (void)play;
 - (void)stop;

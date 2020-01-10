@@ -29,6 +29,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)defaultConfiguration;
 
+- (instancetype)initWithSampleRate:(FYAudioSampleRate)sampleRate
+                          channels:(FYAudioChannel)channels
+                          dataType:(FYAudioDataType)dataType
+                          fileType:(FYAudioFileType)fileType
+                        formatType:(FYAudioFormatType)formatType
+                      bufferLength:(NSTimeInterval)bufferLength;
+
 @end
 
 NS_ASSUME_NONNULL_END

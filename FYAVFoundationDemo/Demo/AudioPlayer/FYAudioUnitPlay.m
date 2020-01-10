@@ -19,18 +19,17 @@
     
     //格式转换
     AudioUnit _convertUnit;
-//    AudioComponentDescription _convertDes;
-//    AudioStreamBasicDescription _convertInputStreamDes; //需要转换的文件流格式
     AUNode _convertNode;
 }
 
 @property (nonatomic, copy, nullable) NSURL *fileURL;
-@property (nonatomic, assign) FYAudioFileType fileType;
-
 @property (nonatomic, assign) FYAudioSetupResult setupResult;
 @property (nonatomic, strong) dispatch_queue_t sessionQueue;
 @property (nonatomic, strong) NSInputStream *inputStream;
 @property (nonatomic, strong) FYAudioSession *audioSession;
+@property (nonatomic, assign) BOOL isPlaying;
+
+@property (nonatomic, strong) FYAudioConfiguration *configuration;
 
 @end
 
@@ -41,10 +40,10 @@
     [self destory];
 }
 
-- (instancetype)initWithFileURL:(NSURL *)fileURL fileType:(FYAudioFileType)fileType {
+- (instancetype)initWithFileURL:(NSURL *)fileURL configure:(nonnull FYAudioConfiguration *)configuration {
     if (self = [super init]) {
-        _fileType = fileType;
         _fileURL = fileURL;
+        _configuration = configuration;
         _sessionQueue = dispatch_queue_create("com.fy.audioUnit.queue", DISPATCH_QUEUE_SERIAL);
         [self prepare];
         [self setupAudioSession];
@@ -53,17 +52,20 @@
     return self;
 }
 
-- (void)initInputStream:(NSURL *)url {
+- (BOOL)initInputStream:(NSURL *)url {
     if ([[NSFileManager defaultManager] fileExistsAtPath:_fileURL.path]) {
         // open pcm stream
         _inputStream = [NSInputStream inputStreamWithURL:url];
         if (!_inputStream) {
             NSLog(@"打开文件失败 %@", url);
+            return NO;
         }
         else {
             [_inputStream open];
+            return YES;
         }
     }
+    return NO;
 }
 
 - (void)play {
@@ -71,31 +73,44 @@
         NSLog(@"AudioUnit初始化失败或者文件为空!!!");
         return;
     }
-    OSStatus status;
-    CAShow(self->_processingGraph);
-    status = AUGraphInitialize(self->_processingGraph);
-    if (status != noErr) {
-        NSLog(@"AUGraphInitialize fail %d",status);
-    }
-    status = AUGraphStart(self->_processingGraph);
-    if (status != noErr) {
-        NSLog(@"AUGraphStart fail %d",status);
-    }
-    
-    if (self.inputStream == nil) {
-        [self initInputStream:self.fileURL];
-    }
+    dispatch_async(_sessionQueue, ^{
+        OSStatus status;
+        BOOL success = YES;
+        if (self.inputStream == nil) {
+            success = [self initInputStream:self.fileURL];
+        }
+        if (success == NO) {
+            return ;
+        }
+        status = AUGraphInitialize(self->_processingGraph);
+        if (status != noErr) {
+            success = NO;
+            NSLog(@"AUGraphInitialize fail %d",status);
+        }
+        status = AUGraphStart(self->_processingGraph);
+        if (status != noErr) {
+            success = NO;
+            NSLog(@"AUGraphStart fail %d",status);
+        }
+        
+        if (success) {
+            self.isPlaying = YES;
+        }
+    });
 }
 
 - (void)stop {
-    OSStatus status;
-    status = AUGraphStop(self->_processingGraph);
-    if (status != noErr) {
-        NSLog(@"AUGraphStop fail %d",status);
-    }
-    [self->_inputStream close];
-    self->_inputStream = nil;
-    NSLog(@"AUGraphStop status %d",status);
+    dispatch_async(_sessionQueue, ^{
+        OSStatus status;
+        status = AUGraphStop(self->_processingGraph);
+        if (status != noErr) {
+            NSLog(@"AUGraphStop fail %d",status);
+        }
+        [self->_inputStream close];
+        self->_inputStream = nil;
+        NSLog(@"AUGraphStop status %d",status);
+        self.isPlaying = NO;
+    });
 }
 
 - (void)destory {
@@ -134,12 +149,21 @@
             self.setupResult = AVAuthorizationStatusNotDetermined;
             break;
     }
-    [self initInputStream:_fileURL];
 }
 
 - (void)setupAudioSession {
     dispatch_async(_sessionQueue, ^{
-        self.audioSession = [FYAudioSession defaultAudioSession];
+        if (self.configuration.audioFileType == FYAudioFileTypeLPCM) {
+            self.configuration.audioDataType = FYAudioDataTypePacket;
+        }else {
+            // 从音频文件中读取数据解码后的音频数据格式;经过测试，发现只支持AudioFilePlayer解码后输出的数据格式只支持
+            // kAudioFormatFlagIsFloat|kAudioFormatFlagIsNonInterleaved;
+//            AudioFormatFlags flags = kAudioFormatFlagIsFloat|kAudioFormatFlagIsNonInterleaved;
+            //暂不支持
+            
+        }
+        self.audioSession = [[FYAudioSession alloc] initWithConfiguration:self.configuration category:AVAudioSessionCategoryPlayback options:AVAudioSessionCategoryOptionAllowBluetooth|AVAudioSessionCategoryOptionAllowBluetooth|AVAudioSessionCategoryOptionAllowBluetoothA2DP];
+
     });
 }
 
@@ -242,7 +266,7 @@
     AudioStreamBasicDescription ioStreamDes = [FYUnitTool streamDesWithLinearPCMformat:kAudioFormatFlagIsFloat|kAudioFormatFlagIsNonInterleaved
                      sampleRate:sampleRate
                        channels:channels
-                bytesPerChannel:4];
+                bytesPerChannel:sizeof(Float32)];
     
     // PCM文件的音频的数据格式
     AudioFormatFlags flags = self.audioSession.formatFlags;
@@ -351,7 +375,7 @@ static OSStatus handleInputBuffer(void *inRefCon,
                                   AudioBufferList *ioData) {
     @autoreleasepool {
         FYAudioUnitPlay *player = (__bridge FYAudioUnitPlay*)inRefCon;
-        if (player.inputStream != nil && player.fileType == FYAudioFileTypeLPCM) {
+        if (player.inputStream != nil && player.configuration.audioFileType == FYAudioFileTypeLPCM) {
             //判断PCM数据格式
             if (player.audioSession.configuration.audioDataType == FYAudioDataTypeNonInterleaved) {
                 //kAudioFormatFlagIsNonInterleaved

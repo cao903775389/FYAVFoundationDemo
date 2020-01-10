@@ -8,7 +8,8 @@ target 'FYAVFoundationDemo' do
   # Pods for FYAVFoundationDemo
   pod 'GPUImage', '~> 0.1.7'
   pod 'ReactiveObjC', '~> 3.0.0'
-
+  pod 'QMUIKit', '~> 4.0.4'
+  
   target 'FYAVFoundationDemoTests' do
     inherit! :search_paths
     # Pods for testing

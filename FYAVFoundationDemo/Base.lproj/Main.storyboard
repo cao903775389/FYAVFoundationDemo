@@ -387,7 +387,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vMr-F0-IFH">
-                                <rect key="frame" x="176" y="413" width="62" height="70"/>
+                                <rect key="frame" x="176" y="393" width="62" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMD-l5-RF5">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
@@ -405,21 +405,113 @@
                                             <action selector="stopRecord:" destination="Kui-BN-ORD" eventType="touchUpInside" id="e7t-ks-edK"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-zA-ub4">
+                                        <rect key="frame" x="0.0" y="80" width="62" height="30"/>
+                                        <state key="normal" title="播放"/>
+                                        <state key="selected" title="暂停"/>
+                                        <connections>
+                                            <action selector="playButtonClick:" destination="Kui-BN-ORD" eventType="touchUpInside" id="KDA-pr-jD5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pLc-27-GOR">
+                                <rect key="frame" x="15" y="108" width="158" height="170"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZs-A1-Od6">
+                                        <rect key="frame" x="0.0" y="0.0" width="158" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否开启耳返" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSb-ka-CQq">
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JRZ-2S-ddN">
+                                                <rect key="frame" x="109" y="9.5" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="JRZ-2S-ddN" firstAttribute="centerY" secondItem="iZs-A1-Od6" secondAttribute="centerY" id="Hth-wu-PhO"/>
+                                            <constraint firstItem="DSb-ka-CQq" firstAttribute="leading" secondItem="iZs-A1-Od6" secondAttribute="leading" id="bIm-0c-xDl"/>
+                                            <constraint firstAttribute="trailing" secondItem="JRZ-2S-ddN" secondAttribute="trailing" id="dIj-Nd-GHj"/>
+                                            <constraint firstItem="JRZ-2S-ddN" firstAttribute="leading" secondItem="DSb-ka-CQq" secondAttribute="trailing" constant="5" id="fDV-Di-w9D"/>
+                                            <constraint firstAttribute="bottom" secondItem="DSb-ka-CQq" secondAttribute="bottom" id="lxD-aP-hjf"/>
+                                            <constraint firstItem="DSb-ka-CQq" firstAttribute="top" secondItem="iZs-A1-Od6" secondAttribute="top" id="mH6-cq-Vfu"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kQ-eE-AfP">
+                                        <rect key="frame" x="0.0" y="60" width="158" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否开启伴奏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPc-Ci-ezs">
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vis-tE-fDi">
+                                                <rect key="frame" x="109" y="9.5" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="WPc-Ci-ezs" secondAttribute="bottom" id="10q-O9-MfM"/>
+                                            <constraint firstItem="WPc-Ci-ezs" firstAttribute="leading" secondItem="1kQ-eE-AfP" secondAttribute="leading" id="J5K-1G-gWC"/>
+                                            <constraint firstItem="Vis-tE-fDi" firstAttribute="leading" secondItem="WPc-Ci-ezs" secondAttribute="trailing" constant="5" id="iI9-Dp-7Oq"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vis-tE-fDi" secondAttribute="trailing" id="juh-kl-Wty"/>
+                                            <constraint firstItem="WPc-Ci-ezs" firstAttribute="top" secondItem="1kQ-eE-AfP" secondAttribute="top" id="vep-lZ-y7D"/>
+                                            <constraint firstItem="Vis-tE-fDi" firstAttribute="centerY" secondItem="1kQ-eE-AfP" secondAttribute="centerY" id="yDL-xL-jlc"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZS-TN-E2b">
+                                        <rect key="frame" x="0.0" y="120" width="158" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否保存本地" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHy-i8-17h">
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-rY-Yac">
+                                                <rect key="frame" x="109" y="9.5" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="kHy-i8-17h" firstAttribute="leading" secondItem="qZS-TN-E2b" secondAttribute="leading" id="0pR-ta-Mo2"/>
+                                            <constraint firstItem="kHy-i8-17h" firstAttribute="top" secondItem="qZS-TN-E2b" secondAttribute="top" id="KfB-gT-Fcx"/>
+                                            <constraint firstItem="sYu-rY-Yac" firstAttribute="centerY" secondItem="qZS-TN-E2b" secondAttribute="centerY" id="QTl-gS-Wee"/>
+                                            <constraint firstAttribute="bottom" secondItem="kHy-i8-17h" secondAttribute="bottom" id="aAt-YI-1Rb"/>
+                                            <constraint firstItem="sYu-rY-Yac" firstAttribute="leading" secondItem="kHy-i8-17h" secondAttribute="trailing" constant="5" id="l7N-nW-PFr"/>
+                                            <constraint firstAttribute="trailing" secondItem="sYu-rY-Yac" secondAttribute="trailing" id="xGK-qA-QMi"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="pLc-27-GOR" firstAttribute="top" secondItem="Kga-wU-2n7" secondAttribute="top" constant="20" id="lEm-gS-cd9"/>
                             <constraint firstItem="vMr-F0-IFH" firstAttribute="centerX" secondItem="ZKm-or-WvO" secondAttribute="centerX" id="rBh-zp-iRT"/>
+                            <constraint firstItem="pLc-27-GOR" firstAttribute="leading" secondItem="Kga-wU-2n7" secondAttribute="leading" constant="15" id="ual-uR-bDW"/>
                             <constraint firstItem="vMr-F0-IFH" firstAttribute="centerY" secondItem="ZKm-or-WvO" secondAttribute="centerY" id="xZc-29-IWp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kga-wU-2n7"/>
                     </view>
                     <navigationItem key="navigationItem" title="AudioUnit 录制并播放" id="Xgy-t9-xH4"/>
+                    <connections>
+                        <outlet property="bgSwitch" destination="Vis-tE-fDi" id="LLS-GY-PpS"/>
+                        <outlet property="earReturnSwitch" destination="JRZ-2S-ddN" id="GJh-tJ-UPn"/>
+                        <outlet property="playButton" destination="H0k-zA-ub4" id="qoB-4K-58v"/>
+                        <outlet property="saveLocalSwitch" destination="sYu-rY-Yac" id="ga3-nu-TuR"/>
+                        <outlet property="startRecordButton" destination="iMD-l5-RF5" id="BUG-JV-Jkk"/>
+                        <outlet property="stopRecordButton" destination="1SG-r5-nK1" id="wPL-li-pbk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVm-Wk-9JU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3309" y="-320"/>
+            <point key="canvasLocation" x="3308.6956521739135" y="-320.08928571428572"/>
         </scene>
         <!--OpenGL-->
         <scene sceneID="ttc-3L-jRf">

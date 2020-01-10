@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -89,5 +90,25 @@ typedef NS_ENUM (NSUInteger, FYAudioSampleRate){
 static const NSTimeInterval FYAudioSessionDelay_Background = 0.0929;
 static const NSTimeInterval FYSAudioSessionDelay_Default = 0.0232;
 static const NSTimeInterval FYSAudioSessionDelay_Low = 0.0058;
+
+static inline AudioFileTypeID convertFromFileType(FYAudioFileType fileType) {
+    if (fileType == FYAudioFileTypeLPCM) {
+        NSLog(@"无法处理 PCM数据");
+        return 0;
+    }
+    AudioFileTypeID resultType = kAudioFileM4AType;
+    if (fileType == FYAudioFileTypeM4A) {
+        resultType = kAudioFileM4AType;
+    } else if (fileType == FYAudioFileTypeMP3) {
+        resultType = kAudioFileMP3Type;
+    } else if (fileType == FYAudioFileTypeCAF) {
+        resultType = kAudioFileCAFType;
+    } else if (fileType == FYAudioFileTypeWAV) {
+        resultType = kAudioFileWAVEType;
+    } else {
+        resultType = kAudioFileWAVEType;
+    }
+    return resultType;
+};
 
 NS_ASSUME_NONNULL_END

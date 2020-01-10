@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-FYAVFoundationDemo/Pods-FYAVFoundationDemo-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework
+${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework
 ${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework

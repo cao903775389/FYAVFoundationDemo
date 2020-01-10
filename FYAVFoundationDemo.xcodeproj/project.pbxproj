@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		50FA89B1075A570A582D48B8 /* Pods_FYAVFoundationDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6100667177AD10280F48F38D /* Pods_FYAVFoundationDemoUITests.framework */; };
+		8401833823C5C687003ADC57 /* FYFileDataWritter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401833723C5C687003ADC57 /* FYFileDataWritter.m */; };
+		8401833B23C5D5E4003ADC57 /* audiounit_record.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 8401833A23C5D5E4003ADC57 /* audiounit_record.pcm */; };
+		8401833E23C6D316003ADC57 /* FYEXAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401833D23C6D315003ADC57 /* FYEXAudioFile.m */; };
+		8401834023C71510003ADC57 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8401833F23C71510003ADC57 /* background.mp3 */; };
 		84022D0C23C213810058CC4A /* FYAudioUnitRecordDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84022D0A23C213810058CC4A /* FYAudioUnitRecordDemo.m */; };
 		84022D1023C21A8F0058CC4A /* FYAudioUnitRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84022D0F23C21A8F0058CC4A /* FYAudioUnitRecorder.m */; };
 		84022D1423C21CDD0058CC4A /* FYAudioConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 84022D1323C21CDD0058CC4A /* FYAudioConfiguration.m */; };
@@ -63,6 +67,12 @@
 		31CEE73CBB8A29DE3118FD15 /* Pods-FYAVFoundationDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYAVFoundationDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-FYAVFoundationDemoUITests/Pods-FYAVFoundationDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6100667177AD10280F48F38D /* Pods_FYAVFoundationDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYAVFoundationDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		819F4265DAA7CB70721042D9 /* Pods_FYAVFoundationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYAVFoundationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8401833623C5C687003ADC57 /* FYFileDataWritter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYFileDataWritter.h; sourceTree = "<group>"; };
+		8401833723C5C687003ADC57 /* FYFileDataWritter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYFileDataWritter.m; sourceTree = "<group>"; };
+		8401833A23C5D5E4003ADC57 /* audiounit_record.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = audiounit_record.pcm; sourceTree = "<group>"; };
+		8401833C23C6D315003ADC57 /* FYEXAudioFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYEXAudioFile.h; sourceTree = "<group>"; };
+		8401833D23C6D315003ADC57 /* FYEXAudioFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYEXAudioFile.m; sourceTree = "<group>"; };
+		8401833F23C71510003ADC57 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		84022D0923C213810058CC4A /* FYAudioUnitRecordDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAudioUnitRecordDemo.h; sourceTree = "<group>"; };
 		84022D0A23C213810058CC4A /* FYAudioUnitRecordDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAudioUnitRecordDemo.m; sourceTree = "<group>"; };
 		84022D0E23C21A8F0058CC4A /* FYAudioUnitRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYAudioUnitRecorder.h; sourceTree = "<group>"; };
@@ -228,6 +238,8 @@
 				84FCEACC23990D8B00081767 /* ScreenRecording_06-03-2019 23.MP4 */,
 				8461B8FF23B0AA1F0087E385 /* icon_my_gift.png */,
 				8421147D23BD9A9E009844F1 /* test_441_f32le_2.pcm */,
+				8401833A23C5D5E4003ADC57 /* audiounit_record.pcm */,
+				8401833F23C71510003ADC57 /* background.mp3 */,
 				84FCEAC723990A3700081767 /* Demo */,
 				8423079C22DAD7CE00385D28 /* Main.storyboard */,
 				8423079F22DAD7D000385D28 /* Assets.xcassets */,
@@ -280,6 +292,10 @@
 				840602A823BB60300080503C /* FYUnitTool.m */,
 				8421147F23BD9F4B009844F1 /* FYAudioSession.h */,
 				8421148023BD9F4B009844F1 /* FYAudioSession.m */,
+				8401833623C5C687003ADC57 /* FYFileDataWritter.h */,
+				8401833723C5C687003ADC57 /* FYFileDataWritter.m */,
+				8401833C23C6D315003ADC57 /* FYEXAudioFile.h */,
+				8401833D23C6D315003ADC57 /* FYEXAudioFile.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -426,11 +442,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8401833B23C5D5E4003ADC57 /* audiounit_record.pcm in Resources */,
 				8461B90623B0B6240087E385 /* poster_default.png in Resources */,
 				84FCEACD23990D8B00081767 /* ScreenRecording_06-03-2019 23.MP4 in Resources */,
 				8461B90423B0B1B60087E385 /* IMG_0004.png in Resources */,
 				8461B90023B0AA200087E385 /* icon_my_gift.png in Resources */,
 				842307A322DAD7D000385D28 /* LaunchScreen.storyboard in Resources */,
+				8401834023C71510003ADC57 /* background.mp3 in Resources */,
 				842307A022DAD7D000385D28 /* Assets.xcassets in Resources */,
 				8421147E23BD9A9E009844F1 /* test_441_f32le_2.pcm in Resources */,
 				8423079E22DAD7CE00385D28 /* Main.storyboard in Resources */,
@@ -548,12 +566,14 @@
 				84F251F8239F4400007A9D05 /* FYAVCapturePreview.m in Sources */,
 				840602A023BB21EC0080503C /* FYConstant.m in Sources */,
 				84022D0C23C213810058CC4A /* FYAudioUnitRecordDemo.m in Sources */,
+				8401833E23C6D316003ADC57 /* FYEXAudioFile.m in Sources */,
 				84F251F9239F4676007A9D05 /* FYH264Encoder.m in Sources */,
 				840602A623BB557C0080503C /* FYAudioUnitPlay.m in Sources */,
 				84FCEACB23990B8300081767 /* FYVideoRecordViewController.m in Sources */,
 				84022D1023C21A8F0058CC4A /* FYAudioUnitRecorder.m in Sources */,
 				840602A923BB60300080503C /* FYUnitTool.m in Sources */,
 				84022D1423C21CDD0058CC4A /* FYAudioConfiguration.m in Sources */,
+				8401833823C5C687003ADC57 /* FYFileDataWritter.m in Sources */,
 				8423079B22DAD7CE00385D28 /* ViewController.m in Sources */,
 				8406029C23BB201B0080503C /* FYAudioUnitDemo.m in Sources */,
 				8461B90C23B221060087E385 /* FYGLView.m in Sources */,
